@@ -1,4 +1,5 @@
 class AnswerController < ApplicationController
+  # before_action :authenticate_user!
 
   def create
     user_sign_in?
