@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :destroy]
   end
 
-  devise_for :users
+  devise_for :users, controller: {:registrations => "users/registrations"}
 
   resources :question do
     concerns [:commentable, :votable]
