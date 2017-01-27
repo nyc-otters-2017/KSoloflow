@@ -1,6 +1,7 @@
-class CommentController < ApplicationController
+class CommentsController < ApplicationController
 
   def create
+    @comment.new
   end
 
   def edit

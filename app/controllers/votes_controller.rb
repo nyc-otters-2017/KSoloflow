@@ -1,4 +1,4 @@
-class VoteController < ApplicationController
+class VotesController < ApplicationController
 
   def create
   end
