@@ -1,13 +1,3 @@
-User.create(email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Silver Snake", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Red Jaguar", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Green Monkey", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Baby Einstein", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Doctor_who_yana", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Fearless Kettle", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Giant Momma", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Abstract Cat", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
-User.create(username: "Thirsty Blast", email: Faker::Internet.email, password: "PASSword99!", title: Faker::Name.title, location: Faker::GameOfThrones.city, bio: Faker::Hipster.paragraph(2, true, 4))
 
 def randomname
   num = rand(0..2)
@@ -16,17 +6,20 @@ def randomname
  elsif num == 1
    Faker::Hipster.word.capitalize + ' ' + Faker::Hipster.word.capitalize
  elsif num == 2
-   nil
+   "user#{(1000..3000)}"
  end
 end
 
+ottersname = ['Kane','Kevin','JJ','Nick','John','Tony' 'Raji']
+
 50.times do
   User.create(
+  name: ottersname.sample,
   username: randomname,
   email: Faker::Internet.email,
   password: "PASSword99!",
   title: Faker::Name.title,
-  location: Faker::GameOfThrones.city,
+  address: Faker::GameOfThrones.city,
   bio: Faker::Hipster.paragraph(2, true, 4))
 end
 
