@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   concern :commentable do
@@ -10,10 +9,12 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :destroy]
   end
 
+  devise_for :users
+
   resources :question do
-    concern :commentable, :votable
+    concerns [:commentable, :votable]
     resources :answers, only: [:create, :edit, :update, :destroy] do
-      concern :commentable, :votable
+      concerns [:commentable, :votable]
     end
   end
 end
