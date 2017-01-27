@@ -1,6 +1,7 @@
-class AnswerController < ApplicationController
+class CommentsController < ApplicationController
 
   def create
+    @comment.new
   end
 
   def edit
@@ -14,7 +15,7 @@ class AnswerController < ApplicationController
 
   private
 
-  def answer_params
+  def comment_params
   end
 
 end
