@@ -1,0 +1,44 @@
+
+<div class="questions_show">
+  <h3>Question</h3>
+  <p>
+    <span><%=@question.title %></span>
+    <span><%=time_ago_in_words(@question.created_at)%></span>
+  </p>
+  <div class="question_comment">
+    <h3>comments</h3>
+    <% @question.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+    <% end %>
+  </div>
+</div>
+
+<br><br>
+<div class="answers_show">
+  <h3>answers</h3>
+  <% @question.answers.each do |answer| %>
+    <p> <%= answer.content%>  </p>
+
+      <%answer.comments.each do |comment| %>
+
+    <p>Comment:<%=comment%></p>
+      <% end %>
+  <% end %>
+
+</div>
+
+<br><br>
+<div class="">
+
+  <%= form_for :question_answer do |f| %>
+  <p>
+    <%= f.label :content %> <br>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+</div>

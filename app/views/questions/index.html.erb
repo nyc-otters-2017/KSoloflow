@@ -2,7 +2,7 @@
 <div class="home_all_questions">
   <% @questions.each do |question| %>
     <p>
-      <span><%= question.title %></span>
+      <span><a href="/questions/<%=question.id%>"><%= question.title %></a></span>
       <span><%= time_ago_in_words(question.created_at)%></span>
     </p>
   <% end %>
