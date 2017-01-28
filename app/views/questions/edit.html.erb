@@ -1,0 +1,8 @@
+<form class="question-form" action="/questions/<%=@question.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+    <label for="question">Title</label>
+    <input type="text" name="question[title]" placeholder="Think of a descriptive title">
+    <label for="question">Question</label>
+    <textarea name="question[content]" rows="8" cols="80"><%=@question.content%></textarea>
+    <input type="submit" name="submit" value="Post Question">
+</form>
