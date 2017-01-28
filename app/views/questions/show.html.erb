@@ -13,6 +13,10 @@
   </div>
 </div>
 
+<div class="">
+  <%= render "comments/question_comment" %> 
+</div>
+
 <br><br>
 <div class="answers_show">
   <h3>answers</h3>
@@ -28,17 +32,3 @@
 </div>
 
 <br><br>
-<div class="">
-
-  <%= form_for :question_answer do |f| %>
-  <p>
-    <%= f.label :content %> <br>
-    <%= f.text_field :content %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-</div>

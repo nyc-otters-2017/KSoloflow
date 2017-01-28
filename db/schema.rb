@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170127231307) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                default: "Kane",            null: false
-    t.string   "username",            default: "user2610",        null: false
+    t.string   "username",            default: "user2260",        null: false
     t.string   "email",               default: "",                null: false
     t.string   "encrypted_password",  default: "",                null: false
     t.string   "address",             default: "Area51, Nevada",  null: false
