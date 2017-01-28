@@ -1,6 +1,6 @@
 <div class="question_comment_box">
-  <h3>Question Comment Box </h3>
-  <form class="" action="/questions/<%=@question.id%>/comments" method="post">
+  <h3>Answer Comment Box </h3>
+  <form class="" action="/questions/<%=@question.id%>/answers/<%=@answer.id%>/comments" method="post">
     <label for=""></label>
     <textarea id="wmd-input" class="wmd-input processed" name="comment[content]" cols="92" rows="6"></textarea>
     <br>

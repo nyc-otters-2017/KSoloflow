@@ -1,5 +1,5 @@
 
-<div class="questions_show">
+<!-- <div class="questions_show">
   <h3>Question</h3>
   <p>
     <span><%=@question.title %></span>
@@ -11,24 +11,86 @@
       <p><%= comment.content %></p>
     <% end %>
   </div>
+    <% if user_signed_in? %>
+      <div class="">
+        <%= render "comments/question_comment" %>
+      </div>
+    <% end %>
 </div>
 
-<div class="">
-  <%= render "comments/question_comment" %> 
-</div>
+<% if user_signed_in? %>
+  <div class="">
+    <%= render "answers/question_answer" %>
+  </div>
+<% end %>
 
 <br><br>
 <div class="answers_show">
   <h3>answers</h3>
   <% @question.answers.each do |answer| %>
     <p> <%= answer.content%>  </p>
-
-      <%answer.comments.each do |comment| %>
-
-    <p>Comment:<%=comment%></p>
+      <% if user_signed_in? %>
+        <div class="answer_comment_box">
+          <% @answer = Answer.find(answer.id) %>
+          <%= render "comments/answer_comment" %>
+        </div>
       <% end %>
+      <%answer.comments.each do |comment| %>
+        <p>Comment: <%=comment.content%></p>
+      <% end %>
+
   <% end %>
 
+</div> -->
+<br><br>
+<div class="question_show">
+  <h3>Question:</h3>
+  <ul>
+    <li>Title: <%= @question.title %></li>
+    <li><%= @question.content %></li>
+    <li class=author><%= @question.user.username %> <%= @question.user.email %></li>
+    <br>
+    <% if @question.user == current_user %>
+      <li class=author><%= link_to 'Edit', edit_question_path %> <%= link_to 'Delete', question_path, method: :delete, data: {confirm: "Are you sure?"} %></li>
+    <% end %>
+    <div class="question_comment">
+      <p>question comments</p>
+      <ul class=''>
+        <% @question.comments.each do |comment| %>
+        <li><%= comment.content %></li>
+        <% end %>
+      </ul>
+      <% if user_signed_in? %>
+        <div class="">
+          <%= render "comments/question_comment" %>
+        </div>
+      <% end %>
+    </div>
+  </ul>
 </div>
+
+<div class="Question_answer">
+  <h3>Answers</h3>
+  <ul>
+    <% @question.answers.each do |answer| %>
+    <li><%= answer.content %></li>
+      <% if user_signed_in? %>
+        <div class="">
+          <%= render "comments/answer_comment" %>
+        </div>
+      <% end %>
+
+      <% if answer.comments.size != 0%>
+        <% answer.comments.each do |comment| %>
+      <ul>
+        <li><%=comment%></li>
+      </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+
 
 <br><br>

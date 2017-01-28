@@ -2,7 +2,8 @@ class AnswersController < ApplicationController
   # before_action :authenticate_user!
 
   def create
-    user_sign_in?
+    user_signed_in?
+    
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(answer_params)
     @answer.user_id = current_user.id
@@ -17,7 +18,7 @@ class AnswersController < ApplicationController
   def edit
     @answer = Answer.find(params[:id])
     @user = @answer.user
-  ends
+  end
 
   def update
     @answer = Answer.find(params[:id])
@@ -41,6 +42,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
+    params.require(:answer).permit(:content, :question_id, :answer_id)
   end
 
 end

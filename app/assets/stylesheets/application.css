@@ -19,3 +19,7 @@
   border: 3px solid green;
   width: 600px;
 }
+
+.author {
+  float: right;
+}

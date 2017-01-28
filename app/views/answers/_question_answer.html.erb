@@ -1,0 +1,15 @@
+<div class="question_comment_box">
+  <h3>Question Answer Box </h3>
+  <form class="" action="/questions/<%=@question.id%>/answers/" method="post">
+    <textarea id="qa-box-input" name="answer[content]" cols="92" rows="15"></textarea>
+    <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
+    <input type="hidden" name="answer[user_id]" value="<%=current_user.id%>">
+    <br>
+    <input type="submit" name="" value="Comment">
+  </form>
+
+</div>
+
+content
+user id
+question id
