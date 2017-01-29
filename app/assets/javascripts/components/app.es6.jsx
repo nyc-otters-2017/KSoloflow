@@ -19,11 +19,10 @@ class App extends React.Component {
     return (
       <div>
       <h3>All Question page</h3>
-      <div class="home_all_questions">
-          <p>
-            <span><a href=""></a></span>
-            <span></span>
-          </p>
+        <div className="home_all_questions">
+          { this.state.map(q)
+          <QuestionStream questions={q}/>
+          }
         </div>
       </div>
     )
